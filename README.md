@@ -1,7 +1,7 @@
 # HangmanGame
 For the Intro to Python Programming course at CS @ Illinois SAIL 2017.
 
-Wordlist Source: [http://www-personal.umich.edu/~jlawler/wordlist]()
+Wordlist Source: http://www-personal.umich.edu/~jlawler/wordlist
 
 ## Tutorial Topics
 - Print hello world
