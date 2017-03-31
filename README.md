@@ -15,6 +15,8 @@ Wordlist Source: http://www-personal.umich.edu/~jlawler/wordlist
 - Input
 - If, elif, else statements
 - For-loops & while-loops
+- List comprehension
+- Map function & filter function
 - Exceptions & try-catch blocks
 - Functions
 - Modules
@@ -29,7 +31,6 @@ Line of pseudocode [topics covered]
 ```
 Import string of lowercase letters from "string" module [modules]
 
-Ask for player's name [input]
 Ask for number of attempts, make sure it is positive and less than 26 [input, casting, decomposition, exceptions]
 Open words file & select random word [file I/O, lists, modules, scalability (if there is time remaining)]
 
