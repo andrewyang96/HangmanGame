@@ -25,7 +25,7 @@ def _get_display_word(word, idxs):
     if len(word) != len(idxs):
         raise ValueError('Word length and indices length are not the same')
     displayed_word = ''.join(
-        [letter if idxs[i] else '×' for i, letter in enumerate(word)])
+        [letter if idxs[i] else '*' for i, letter in enumerate(word)])
     return displayed_word.strip()
 
 
