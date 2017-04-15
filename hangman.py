@@ -7,7 +7,8 @@ from string import ascii_lowercase
 from words import get_random_word
 
 
-def _get_num_attempts():
+def get_num_attempts():
+    """Get user-inputted number of attempts for the game."""
     while True:
         num_attempts = input('How many attempts do you want? [1-25] ')
         try:
@@ -21,7 +22,8 @@ def _get_num_attempts():
                 '{0} is not an integer between 1 and 25'.format(num_attempts))
 
 
-def _get_display_word(word, idxs):
+def get_display_word(word, idxs):
+    """Get the word suitable for display."""
     if len(word) != len(idxs):
         raise ValueError('Word length and indices length are not the same')
     displayed_word = ''.join(
@@ -29,7 +31,8 @@ def _get_display_word(word, idxs):
     return displayed_word.strip()
 
 
-def _get_next_letter(remaining_letters):
+def get_next_letter(remaining_letters):
+    """Get the user-inputted next letter."""
     if len(remaining_letters) == 0:
         raise ValueError('There are no remaining letters')
     while True:
@@ -52,7 +55,7 @@ def play_hangman():
     """
     # Let player specify difficulty
     print('Starting a game of Hangman...')
-    attempts_remaining = _get_num_attempts()
+    attempts_remaining = get_num_attempts()
 
     # Randomly select a word
     print('Selecting a word...')
@@ -68,12 +71,12 @@ def play_hangman():
     # Main game loop
     while attempts_remaining > 0 and not word_solved:
         # Print current game state
-        print('Word: {0}'.format(_get_display_word(word, idxs)))
+        print('Word: {0}'.format(get_display_word(word, idxs)))
         print('Attempts Remaining: {0}'.format(attempts_remaining))
         print('Previous Guesses: {0}'.format(' '.join(wrong_letters)))
 
         # Get player's next letter guess
-        next_letter = _get_next_letter(remaining_letters)
+        next_letter = get_next_letter(remaining_letters)
 
         # Check if letter guess is in word
         if next_letter in word:
