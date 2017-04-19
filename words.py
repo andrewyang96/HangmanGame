@@ -11,6 +11,7 @@ def get_random_word(min_word_length):
     curr_word = None
     with open(WORDLIST, 'r') as f:
         for word in f:
+            word = word.strip().lower()
             if len(word) < min_word_length:
                 continue
             num_words_processed += 1
