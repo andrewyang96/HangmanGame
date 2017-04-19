@@ -8,18 +8,35 @@ from words import get_random_word
 
 
 def get_num_attempts():
-    """Get user-inputted number of attempts for the game."""
+    """Get user-inputted number of incorrect attempts for the game."""
     while True:
-        num_attempts = input('How many attempts do you want? [1-25] ')
+        num_attempts = input(
+            'How many incorrect attempts do you want? [1-25] ')
         try:
             num_attempts = int(num_attempts)
-            if num_attempts <= 0 or num_attempts >= 26:
-                print('{0} is not between 1 and 25'.format(num_attempts))
-            else:
+            if 1 <= num_attempts <= 25:
                 return num_attempts
+            else:
+                print('{0} is not between 1 and 25'.format(num_attempts))
         except ValueError:
-            print(
-                '{0} is not an integer between 1 and 25'.format(num_attempts))
+            print('{0} is not an integer between 1 and 25'.format(
+                num_attempts))
+
+
+def get_min_word_length():
+    """Get user-inputted minimum word length for the game."""
+    while True:
+        min_word_length = input(
+            'What minimum word length do you want? [4-16] ')
+        try:
+            min_word_length = int(min_word_length)
+            if 4 <= min_word_length <= 16:
+                return min_word_length
+            else:
+                print('{0} is not between 4 and 16'.format(min_word_length))
+        except ValueError:
+            print('{0} is not an integer between 4 and 16'.format(
+                min_word_length))
 
 
 def get_display_word(word, idxs):
@@ -56,10 +73,11 @@ def play_hangman():
     # Let player specify difficulty
     print('Starting a game of Hangman...')
     attempts_remaining = get_num_attempts()
+    min_word_length = get_min_word_length()
 
     # Randomly select a word
     print('Selecting a word...')
-    word = get_random_word()
+    word = get_random_word(min_word_length)
     print()
 
     # Initialize game state variables
